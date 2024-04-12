@@ -4,38 +4,58 @@ import Col from 'react-bootstrap/Col';
 import ProductItem from './ProductItem';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
 
 function Product() {
   const [pics, setPics] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [httpError, setHttpError] = useState();
 
   useEffect(() => {
     axios
-      .get('https://jsonplaceholder.typicode.com/photos?_limit=6')
+      .get('http://localhost:3000/api/product')
       .then((response) => {
-        setPics(response.data);
-        console.log(response.data);
+        setIsLoading(false);
+        setPics(response.data.products);
       })
       .catch((error) => {
+        setIsLoading(false);
+        setHttpError(error.message);
         console.error('Error fetching data: ', error);
       });
   }, []);
 
+  if (isLoading) {
+    return (
+      <Button variant="primary" disabled>
+        <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true"/> Loading ...
+          <span className="visually-hidden">Loading...</span>
+      </Button>
+        )
+  }
+
+  if (httpError) {
+    return (
+      <div style={{textAlign: "center"}}> 
+        <h1>Oh snap! You got an error! See u later!</h1>
+        <h2>{httpError}</h2>
+      </div>
+    )
+  }
+
   return (
     <Container fluid id="containerproduct">
-      <Row>
-        <Col><ProductItem name="Product 1" price="1230"/></Col>
-        <Col><ProductItem name="Product 2" price="1240"/></Col>
-      </Row>
-      <Row>
-        <Col><ProductItem name="Product 3" price="1250"/></Col>
-        <Col><ProductItem name="Product 4" price="1260"/></Col>
-      </Row>
-      <Row>
-        <Col><ProductItem name="Product 5" price="1270"/></Col>
-        <Col><ProductItem name="Product 6" price="1280"/></Col>
+      
+        <Row>
+        {pics.map((pic) => (
+          <Col xs={12} md={6} key={pic.id} >
+            <ProductItem name={pic.name} price={pic.price} mainImage={pic.mainImage}/>
+          </Col>
+        
+      ))}
       </Row>
     </Container>
-    
   );
 }
 

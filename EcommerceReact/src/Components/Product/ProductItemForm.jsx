@@ -1,17 +1,26 @@
+import { useState, useContext } from 'react';
+import { CartContext } from '../Context/Context';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function TextControlsExample(props) {
-    return (
-        <div>
-            <Card.Text>{props.price} €</Card.Text>
-            <div class="boutonadd">
-                <Form.Control type="number" min="0"/>
-                <Button variant="primary">Add</Button>
-            </div>
-        </div>
-    );
-  }
-  
-  export default TextControlsExample;
+function ProductItemForm({ id, name, price}) {
+  const [quantity, setQuantity] = useState(0);
+  const { dispatch } = useContext(CartContext);
+
+  const handleAddToCart = () => {
+    dispatch({ type: 'ADD_ITEM', item: { id, name, price, quantity } });
+  };
+
+  return (
+    <div>
+      <Card.Text>{price} €</Card.Text>
+      <div className="boutonadd">
+        <Form.Control type="number" min="0" placeholder="0" value={quantity} onChange={e => setQuantity(Number(e.target.value))}/>
+        <Button variant="primary" onClick={handleAddToCart}>Add</Button>
+      </div>
+    </div>
+  );
+}
+
+export default ProductItemForm;

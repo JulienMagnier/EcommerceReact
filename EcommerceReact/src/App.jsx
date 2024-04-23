@@ -1,17 +1,18 @@
-import { useState } from 'react'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import Header from './Components/Layout/Header'
 import Product from './Components/Product/Product'
+import {CartProvider} from './Components/Context/ContextProvider';
 
 function App() {
 
   return (
-    // Add an expression inside the parentheses
-    <div>
+   
+    <CartProvider>
       <Header />
       <Product />
-    </div>
+    </CartProvider>
   )
 }
 

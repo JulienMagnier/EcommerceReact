@@ -8,7 +8,7 @@ function ProductItem(props) {
       <Card.Img variant="top" src={props.mainImage} />
       <Card.Body>
         <Card.Title>{props.name}</Card.Title>
-          <ProductItemForm image={props.mainImage} name={props.name} price={props.price}/>
+          <ProductItemForm id={props.id} image={props.mainImage} name={props.name} price={props.price}/>
       </Card.Body>
     </Card>
   );

@@ -2,12 +2,14 @@ import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
+import { CartContext } from '../Context/Context';
 
 
 
 
 function Cart(props) {
-
+	const { cart } = useContext(CartContext);
+	console.log(cart);
 	return (
 		<>
         <Modal
@@ -30,30 +32,14 @@ function Cart(props) {
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-				<td>Image de notre chien</td>
-				<td>Chien</td>
-				<td>100</td>
-				<td>1</td>
+				{cart.map((item) => (
+				<tr key={item._id}>
+					<td>{item.id}</td>
+					<td>{item.name}</td>
+					<td>{item.price}</td>
+					<td>{item.quantity}</td>
 				</tr>
-				<tr>
-				<td>Image de notre chat</td>
-				<td>Chat</td>
-				<td>200</td>
-				<td>1</td>
-				</tr>
-				<tr>
-				<td>Image de notre aigle</td>
-				<td>Aigle</td>
-				<td>1000</td>
-				<td>1</td>
-				</tr>
-				<tr>
-				<td>Image de notre limace</td>
-				<td>Limace</td>
-				<td>10</td>
-				<td>1</td>
-				</tr>
+				))}
 			</tbody>
     	</Table>
 		<Modal.Title>Total :</Modal.Title>

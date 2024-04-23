@@ -49,8 +49,8 @@ function Product() {
       
         <Row>
         {pics.map((pic) => (
-          <Col xs={12} md={6} key={pic.id} >
-            <ProductItem name={pic.name} price={pic.price} mainImage={pic.mainImage}/>
+          <Col xs={12} md={6} key={pic._id} >
+            <ProductItem id={pic._id} name={pic.name} price={pic.price} mainImage={pic.mainImage}/>
           </Col>
         
       ))}

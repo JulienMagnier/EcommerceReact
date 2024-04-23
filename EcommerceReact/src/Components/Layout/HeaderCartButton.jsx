@@ -12,7 +12,7 @@ function HeaderCartButton() {
 	
 	return (
 		<>
-		<Button variant="primary" onClick={handleShow}>Panier 
+		<Button variant="primary" onClick={handleShow}>Your Cart
         <Badge bg="secondary">0</Badge>
         </Button>
 		{show &&<Cart handleClose={handleClose} />}

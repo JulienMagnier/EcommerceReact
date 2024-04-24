@@ -9,6 +9,7 @@ function ProductItemForm({ id, name, price}) {
   const { dispatch } = useContext(CartContext);
 
   const handleAddToCart = () => {
+    console.log(id, name, price, quantity);
     dispatch({ type: 'ADD_ITEM', item: { id, name, price, quantity } });
     setQuantity(0);
   };

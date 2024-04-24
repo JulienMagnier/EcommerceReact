@@ -10,6 +10,7 @@ function ProductItemForm({ id, name, price}) {
 
   const handleAddToCart = () => {
     dispatch({ type: 'ADD_ITEM', item: { id, name, price, quantity } });
+    setQuantity(0);
   };
 
   return (

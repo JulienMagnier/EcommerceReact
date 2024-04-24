@@ -11,6 +11,7 @@ import { CartContext } from '../Context/Context';
 
 function Cart(props) {
 	const { cart } = useContext(CartContext);
+	const { dispatch } = useContext(CartContext);
 	console.log(cart);
 	return (
 		<>

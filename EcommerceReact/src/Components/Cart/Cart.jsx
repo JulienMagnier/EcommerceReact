@@ -12,6 +12,8 @@ import { CartContext } from '../Context/Context';
 function Cart(props) {
 	const { cart } = useContext(CartContext);
 	const { dispatch } = useContext(CartContext);
+	const totalCost = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+	const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 	console.log(cart);
 	return (
 		<>
@@ -23,7 +25,7 @@ function Cart(props) {
 		keyboard={false}
 		>
 		<Modal.Header closeButton>
-		<Modal.Title>Panier</Modal.Title>
+		<Modal.Title>Your Cart</Modal.Title>
 		</Modal.Header>
 		<Modal.Body>
 		<Table striped hover>
@@ -54,7 +56,8 @@ function Cart(props) {
 				))}
 			</tbody>
     	</Table>
-		<Modal.Title>Total :</Modal.Title>
+		<Modal.Title>Total : {totalCost} €</Modal.Title>
+		<Modal.Title>Total Items: {totalItems}</Modal.Title>
 		</Modal.Body>
 		<Modal.Footer>
 		<Button variant="secondary" onClick={props.handleClose}>

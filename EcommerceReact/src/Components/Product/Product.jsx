@@ -6,11 +6,15 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
+import { useParams } from 'react-router-dom';
+
+
 
 function Product() {
   const [pics, setPics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState();
+
 
   useEffect(() => {
     axios

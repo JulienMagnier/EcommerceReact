@@ -69,3 +69,7 @@
   max-width: 55%; /* Changez cette valeur pour ajuster la largeur */
   height: 100%; /* Changez cette valeur pour ajuster la hauteur */
 }
+
+#badgepanier{
+  margin-left: 5px;
+}

@@ -4,15 +4,21 @@ import './App.css'
 import Header from './Components/Layout/Header'
 import Product from './Components/Product/Product'
 import {CartProvider} from './Components/Context/ContextProvider';
+import ProductDetail from './Components/Product/ProductDetail';
+
 
 function App() {
 
   return (
-   
+    <BrowserRouter>
     <CartProvider>
       <Header />
-      <Product />
+      <Routes>
+        <Route path="/" element={<Product />} />
+        <Route path="/product/:id" element={<ProductDetail/>} />
+      </Routes>
     </CartProvider>
+    </BrowserRouter>
   )
 }
 

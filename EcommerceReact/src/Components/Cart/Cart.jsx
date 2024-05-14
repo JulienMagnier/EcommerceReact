@@ -57,13 +57,12 @@ function Cart(props) {
 			</tbody>
     	</Table>
 		<Modal.Title>Total : {totalCost} €</Modal.Title>
-		<Modal.Title>Total Items: {totalItems}</Modal.Title>
 		</Modal.Body>
 		<Modal.Footer>
 		<Button variant="secondary" onClick={props.handleClose}>
 			Close
 		</Button>
-		<Button variant="primary">Order</Button>
+		<Button variant="primary" onClick={() => dispatch({ type: 'CLEAR_CART' })}>Order</Button>
 		</Modal.Footer>
 		</Modal>
 

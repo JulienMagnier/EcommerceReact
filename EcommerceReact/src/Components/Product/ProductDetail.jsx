@@ -35,6 +35,7 @@ function ProductDetail() {
       <div id="error">
         <h1>Oh snap! You got an error!</h1>
         <p>{httpError}</p>
+        <a href="/">Go back to the main page</a>
       </div>
     );
   }
@@ -44,7 +45,6 @@ function ProductDetail() {
       <h1>{product.name}</h1>
       <img src={product.mainImage} alt={product.name} />
       <p>{product.description}</p>
-      {/* Autres dÃ©tails du produit... */}
     </div>
   );
 }

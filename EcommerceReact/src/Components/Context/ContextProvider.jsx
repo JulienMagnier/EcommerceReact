@@ -27,6 +27,9 @@ function cartReducer(state, action) {
 
     default:
       return state;
+
+    case 'CLEAR_CART':
+      return [];
   }
 }
 

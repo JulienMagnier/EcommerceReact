@@ -63,6 +63,7 @@
 
 #containerproduct{
   margin-top:50px;
+  max-width: 100%;
 }
 
 .modal .modal-dialog {
@@ -72,4 +73,18 @@
 
 #badgepanier{
   margin-left: 5px;
+}
+
+#descriptionprod{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+#descriptionprod h1{
+  font-size: 2em;
+}
+#descriptionprod img{
+  width: 50%;
+  height: 50%;
 }

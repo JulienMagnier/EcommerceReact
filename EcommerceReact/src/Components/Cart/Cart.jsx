@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
@@ -13,7 +13,6 @@ function Cart(props) {
 	const { cart } = useContext(CartContext);
 	const { dispatch } = useContext(CartContext);
 	const totalCost = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-	const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 	console.log(cart);
 	return (
 		<>

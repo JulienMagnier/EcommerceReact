@@ -23,3 +23,12 @@ function App() {
 }
 
 export default App
+
+
+
+//On importe les composants nécessaires à la création de notre application et les bibliothèques.
+//BrowserRouter active les fonctionnalités de routage pour l'application.
+//Routes est un composant qui permet de définir les routes de l'application.
+//Route est un composant qui permet de définir une route.
+//CartProvider est un composant qui permet de fournir le contexte du panier à ses enfants. 
+//Il y a une route pour la page d'accueil et une route pour la page de détail du produit (différent selon son id).

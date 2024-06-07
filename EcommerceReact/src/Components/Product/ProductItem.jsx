@@ -19,3 +19,16 @@ function ProductItem(props) {
 }
 
 export default ProductItem;
+
+
+
+
+//On définit un composant ProductItem qui affiche les détails d'un produit sous forme de carte.
+//Il prend plusieurs props (id, mainImage, name, price) et les utilise pour afficher les détails du produit.
+
+
+//Il y a un Link qui pointe vers la page de détails du produit (/product/${props.id}). Ce lien va être relié à la route définie dans App.jsx (Donc à ProductDetail.jsx).  
+//Ce lien est limité à la Card.Img, ce qui signifie que l'utilisateur doit cliquer sur l'image pour accéder à la page de détails du produit.
+//Ajoute le composant ProductItemForm au corps de la carte. 
+//Ce composant reçoit plusieurs props (id, image, name, price) qui sont utilisées pour afficher les détails du produit et gérer l'interaction de l'utilisateur avec le produit.
+

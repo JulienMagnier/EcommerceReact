@@ -71,3 +71,29 @@ function Cart(props) {
 }
 
 export default Cart
+
+
+
+//On importe les composants nécessaires à la création de notre application et les bibliothèques.
+//"cart" et "dispatch" utilisent le Hook useContext pour accéder au contexte du panier.
+//"totalCost" calcule le coût total du panier.
+//Le composant Cart est une fenêtre modale qui affiche le contenu du panier.
+//Il y a un tableau qui affiche les éléments du panier avec leur référence, leur nom, leur prix, leur quantité et un bouton pour supprimer l'élément du panier.
+
+//La fonction reduce() prend quatres arguments : un accumulateur, un élément, un index et un tableau. Elle permet de réduire le tableau à une seule valeur.
+//total est l'accumulateur qui stocke le coût total du panier.
+//item est l'élément du tableau, la valeur courante.
+//total + item.price * item.quantity est la valeur à ajouter à l'accumulateur.
+
+//La méthode map() est appelée sur le tableau cart. Pour chaque item dans le tableau cart, elle retourne un élément <tr> contenant plusieurs éléments <td> 
+//Ils affichent les détails de l'item, ainsi qu'un bouton pour supprimer l'item du panier.
+//item est l'élément du tableau, la valeur courante.
+//index est l'index de l'élément dans le tableau.
+
+//La fonction dispatch() est utlisée pour envoyer une action au reducer. 
+//Elle prend un objet en argument avec une propriété type qui indique le type de l'action à effectuer et son id pour savoir sur lequel on fait l'action.
+//Il y'en a deux : une qui va retirer un élément du panier (onClick={() => dispatch({ type: 'REMOVE_ITEM', id: item.id })}).
+//L'autre va vider le panier (onClick={() => dispatch({ type: 'CLEAR_CART' })}).
+//Ils sont appelés lorsqu'on clique sur les boutons correspondants.
+
+//Le props.handleClose est appelé lorsqu'on clique sur le bouton "Close" pour fermer la fenêtre modale.
